@@ -1,12 +1,12 @@
 #include <AD9850.h>
 
-const int W_CLK_PIN = 7;
-const int FQ_UD_PIN = 8;
-const int DATA_PIN = 9;
-const int RESET_PIN = 10;
+const int W_CLK_PIN = 9;
+const int FQ_UD_PIN = 10;
+const int DATA_PIN = 11;
+const int RESET_PIN = 12;
 
 double freq = 10000000;
-double trimFreq = 124999500;
+double trimFreq = 125000000;
 
 int phase = 0;
 
@@ -17,13 +17,5 @@ void setup(){
 
 void loop(){
   DDS.setfreq(freq, phase);
-  delay(10000);
-  DDS.down();
-  delay(3000);
-  DDS.up();
-  delay(2000);
-  DDS.setfreq(freq + 500, phase);
-  delay(5000);
-  DDS.down();
   while(1);
 }
